@@ -6,14 +6,14 @@ function FetchDataFromHDX (data, resource_id, fix_cors) {
     var cors = 'http://allow-any-origin.appspot.com/'
   }
   else {
-    var cors = null
+    var cors = ''
   }
-  var datastore_url = cors + 'https://data.hdx.rwlabs.org/api/action/datastore_search?resource_id=' + resource_id + '&limit=10000'
+  var datastore_url = cors + 'http://data.hdx.rwlabs.org/api/action/datastore_search?resource_id=' + resource_id + '&limit=10000'
   d3.json(datastore_url, function(err, json) {
     if (err) {
       console.log('ERROR!')
       console.log(err)
-      return false
+      return false 
     }
 
     json['result']['records'].forEach(function (d) { data.push(d) })
@@ -150,4 +150,4 @@ function FetchDataFromHDX (data, resource_id, fix_cors) {
 }
 
 var data = []
-FetchDataFromHDX(data, '5c05cdcb-5e3f-4814-8dad-4691cf7b84df', true)
+FetchDataFromHDX(data, '5c05cdcb-5e3f-4814-8dad-4691cf7b84df', false)
