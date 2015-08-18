@@ -13,7 +13,7 @@ function FetchDataFromHDX (data, resource_id, fix_cors) {
     if (err) {
       console.log('ERROR!')
       console.log(err)
-      return false
+      return false 
     }
 
     json['result']['records'].forEach(function (d) { data.push(d) })
